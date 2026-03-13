@@ -1,7 +1,7 @@
 [submodule "quick-gari-dashboard"]
 	path = quick-gari-dashboard
-	url = git@github.com:shahinali-dev/quick-gari-dashboard.git
+	url = git@shahin.github.com:shahinali-dev/quick-gari-dashboard.git
 
 [submodule "quick-gari"]
 	path = quick-gari
-	url = git@github.com:shahinali-dev/quick-gari.git
+	url = git@shahin.github.com:shahinali-dev/quick-gari.git
