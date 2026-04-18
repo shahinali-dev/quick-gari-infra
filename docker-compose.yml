@@ -1,7 +1,7 @@
 version: "3.8"
 services:
   traefik:
-    image: traefik:v3.1
+    image: traefik:v2.11
     container_name: traefik
     restart: always
     command:
@@ -9,6 +9,7 @@ services:
       - "--providers.docker=true"
       - "--providers.docker.exposedbydefault=false"
       - "--entrypoints.web.address=:80"
+      - "--providers.docker.endpoint=unix:///var/run/docker.sock"
     ports:
       - "80:80"
       - "8080:8080"
@@ -17,12 +18,9 @@ services:
     networks:
       - quick-gari-network
 
-  # Backend API
+  # Backend API (Production image from Docker Hub)
   backend:
-    build:
-      context: ./quick-gari
-      dockerfile: Dockerfile
-      target: production
+    image: shahinali1998/quick-gari-backend:latest
     container_name: quick-gari-backend
     restart: always
     expose:
@@ -40,13 +38,9 @@ services:
     networks:
       - quick-gari-network
 
-  # Dashboard Frontend
+  # Dashboard Frontend (Production image from Docker Hub)
   dashboard:
-    build:
-      context: ./quick-gari-dashboard
-      dockerfile: Dockerfile
-      args:
-        VITE_API_URL: ${VITE_API_URL}
+    image: shahinali1998/quick-gari-dashboard:latest
     container_name: quick-gari-dashboard
     restart: always
     expose:
