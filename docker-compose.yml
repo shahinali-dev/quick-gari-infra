@@ -18,7 +18,6 @@ services:
     networks:
       - quick-gari-network
 
-  # Backend API (Production image from Docker Hub)
   backend:
     image: shahinali1998/quick-gari-backend:latest
     container_name: quick-gari-backend
@@ -32,13 +31,9 @@ services:
       - "traefik.http.routers.backend.entrypoints=web"
       - "traefik.http.routers.backend.priority=10"
       - "traefik.http.services.backend.loadbalancer.server.port=3000"
-      - "traefik.http.middlewares.backend-stripprefix.stripprefix.prefixes=/api"
-      - "traefik.http.routers.backend.middlewares=backend-stripprefix"
-      - "traefik.http.routers.backend.websocket=true"
     networks:
       - quick-gari-network
 
-  # Dashboard Frontend (Production image from Docker Hub)
   dashboard:
     image: shahinali1998/quick-gari-dashboard:latest
     container_name: quick-gari-dashboard
