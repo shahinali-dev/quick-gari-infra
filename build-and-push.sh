@@ -18,3 +18,5 @@ docker push $DOCKER_USER/quick-gari-backend:$TAG
 docker push $DOCKER_USER/quick-gari-dashboard:$TAG
 
 echo "✅ Done! Now run: docker compose pull && docker compose up -d on VPS"
+
+# For Run This Skip Try this:   
