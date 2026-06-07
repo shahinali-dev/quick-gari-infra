@@ -19,4 +19,4 @@ docker push $DOCKER_USER/quick-gari-dashboard:$TAG
 
 echo "✅ Done! Now run: docker compose pull && docker compose up -d on VPS"
 
-# For Run This Skip Try this:   
+# For Run This Skip Try this: VITE_API_URL=http://52.184.83.249 ./build-and-push.sh
